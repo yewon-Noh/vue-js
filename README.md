@@ -80,3 +80,64 @@ h1 {
 }
 </style>
 ```
+
+<br>
+
+## Component 구성해보기
+
+Component 생성하기
+- `src/components` 폴더 안에 생성
+- Component 파일의 이름은 대문자로 시작
+
+```js
+<template>
+    <div>Componet name</div>
+</template>
+
+<script>
+export default {
+    name: 'Name',
+    // ...
+};
+</script>
+
+<style scoped>
+</style>
+```
+
+> Componet 작명 시 주의사항
+> - 단어 2개 이상을 사용하여 작명한다. (예: todo-app)
+> - 단어가 1개일 경우 주석을 추가해준다.
+> ```js
+> export default {
+>   //eslint-disable-next-line
+>   name: 'Name',
+> }
+> ```
+
+Componet 가져오기
+```js
+// App.vue
+<script>
+import Content from './components/Content';           // 상대경로 사용
+import Content from '@/components/Content';     // 절대경로 사용
+
+export default {
+  name: 'App',
+  components: {
+    // 가져온 component들을 등록
+    Content,
+  }
+}
+</script>
+```
+
+Component 사용하기
+```js
+<template>
+  <div>
+    <Content/>
+  </div>
+</template>
+```
+
