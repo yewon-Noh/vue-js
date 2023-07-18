@@ -141,3 +141,49 @@ Component 사용하기
 </template>
 ```
 
+<br>
+
+## State 와 Props
+
+v-bind
+- 태그의 속성을 동적으로 변경할 때 사용
+- `v-bind:속성`
+- 예시 `<div v-bind:style="{color: #ebebeb}"></div>`
+
+State
+- 나의 data를 의미
+- `data()` 함수를 이용해 구성
+```js
+<script>
+export default {
+    data() {
+        return {
+            width: 40,
+            height: 80
+        }
+    }
+}
+</script>
+```
+
+Props
+- 부모 컴포넌트에서 자식 컴포넌트로 데이터를 전달할 때 사용됨
+- `props`를 통해 받을 값을 생성
+```js
+<script>
+export default {
+  props: {
+    color: { type: String, default: "" }    // color 라는 값을 받음
+  },
+  // ...
+};
+</script>
+```
+- 내려 받은 값을 적용 (`<div v-bind:class="[state, props]"></div>`)
+```js
+<template>
+    <div class="box" 
+      v-bind:class="['box', color]" >
+    </div>
+</template>
+```
