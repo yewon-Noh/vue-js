@@ -204,10 +204,55 @@ export default {
 </script>
 ```
 - 내려 받은 값을 적용 (`<div v-bind:class="[state, props]"></div>`)
-```js
+```html
 <template>
     <div class="box" 
       v-bind:class="['box', color]" >
     </div>
 </template>
 ```
+
+<br>
+
+## 리스트 렌더링 (v-for)
+- `v-for` 라는 디렉티브를 이용하여 리스트를 렌더링 할 수 있음
+- `item in items` 형태로 특별한 문법이 필요
+  - `items` : 원본 데이터 배열
+  - `item` : 반복되는 배열 엘리먼트의 별칭
+
+```html
+<ul id="example-1">
+  <li class="item" v-for="(item, idx) in items" v-bind:key="{idx}">
+    // ...
+  </li>
+</ul>
+```
+
+<br>
+
+## 조건부 렌더링 (v-if, v-show)
+v-if
+- 조건이 성립하는 태그만 렌더링 한다.
+```html
+<div v-if="true">True</div>
+<div v-if="false">False</div>
+```
+
+v-else
+- `v-if`와 함께 사용
+- 앞의 조건이 성립하지 않는다면 else가 동작한다.
+```html
+<div v-if="true">True</div>
+<div v-if="false">False</div>
+```
+
+v-show
+- 조건이 성랍하지 않는 경우 렌더링은 하되 `display: none` 처리를 한다.
+```html
+<div v-show="true">True</div>
+<div v-show="false">False</div>
+```
+
+> **`v-if` vs `v-show`** <br/>
+> state에 따라 보여졌다 안보여졌다하는 빈도가 많은 경우 `v-show`를 추천 <br/>
+> 그 외에는 `v-if`를 추천
