@@ -256,3 +256,32 @@ v-show
 > **`v-if` vs `v-show`** <br/>
 > state에 따라 보여졌다 안보여졌다하는 빈도가 많은 경우 `v-show`를 추천 <br/>
 > 그 외에는 `v-if`를 추천
+
+<br>
+
+## 양방향 데이터 바인딩
+- Vue 인스턴스와 component 가 서로의 데이터에 접근하는 것
+- vue 에서는 `v-model` 디렉티브를 이용하여 양방향 데이터 바이딩을 지원
+
+v-model
+- 반드시 state 값을 사용해야 한다.
+- props로 내려받은 값을 바로 사용할 수 없다.
+```html
+<template>
+  <div>
+    <h1>{{ title }}</h1>      // h1 태그는 title state 를 바탕으로 내용 구성
+    <input v-model="title">   // input 은 v-model 로 title state 를 사용
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      title: ""               // title 이라는 state 를 가지고 있음
+    };
+  }
+};
+</script>
+```
+
