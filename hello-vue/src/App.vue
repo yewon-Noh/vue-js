@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import Header from "./components/Header";
 import Menu from "./components/Menu";
 import Content from "./components/Content";
 import Box from "./components/Box";
@@ -25,7 +24,6 @@ import Box from "./components/Box";
 export default {
   name: "App",
   components: {
-    Header,
     Menu,
     Content,
     Box,

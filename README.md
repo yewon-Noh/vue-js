@@ -85,6 +85,14 @@ h1 {
 
 ## Component 구성해보기
 
+> Component 생성 방법은 두가지가 있음
+> - Options API : [변경 사항 확인](https://engineer-mole.tistory.com/m/419)
+> - Composition API : Vue3부터 도입(옵션 사항)
+>
+> 아래는 Options API를 사용하였음
+
+<br>
+
 Component 생성하기
 - `src/components` 폴더 안에 생성
 - Component 파일의 이름은 대문자로 시작
@@ -139,6 +147,22 @@ Component 사용하기
     <Content/>
   </div>
 </template>
+```
+
+전역 Component
+- 프로젝트 전체에 사용할 컴포넌트는 `main.js`에 등록해주면 된다.
+- `app.component("이름", 컴포넌트)`
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+import Header from './components/Header'
+
+const app = createApp(App);
+
+//eslint-disable-next-line
+app.component("Header", Header);
+
+app.mount('#app')
 ```
 
 <br>

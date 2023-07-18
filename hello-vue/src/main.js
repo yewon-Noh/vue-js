@@ -1,4 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import Header from './components/Header'
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+//eslint-disable-next-line
+app.component("Header", Header);
+
+app.mount('#app')
+
+
