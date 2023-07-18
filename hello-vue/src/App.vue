@@ -1,25 +1,39 @@
 <template>
+  <div id="app">
+    {{ message }}
+    <h2>뒤집힌 message</h2>
+    {{ reversedMessage }}
+  </div>
+  <br>
   <div>
-    <BlogHeader/>
-    <BlogContent/>
+    <input v-model="firstname" />
+    <input v-model="lastname"/>
+
+    <h2>full name</h2>
+    <span>{{ fullname }}</span>
   </div>
 </template>
 
 <script>
-import BlogHeader from "./components/BlogHeader";
-import BlogContent from "@/components/BlogContent";
-
 export default {
   name: "App",
-  components: {
-    BlogHeader,
-    BlogContent,
+  data() {
+    return {
+      message: 'Hello Vue!!',
+      firstname: '',
+      lastname: '',
+    }
+  },
+  computed: {
+    reversedMessage() {
+      return this.message.split("").reverse().join("")
+    },
+    fullname() {
+      return `${this.firstname} ${this.lastname}`
+    }
   },
 }
 </script>
 
 <style scoped>
-.wrap {
-  display: flex;
-}
 </style>

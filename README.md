@@ -287,3 +287,60 @@ export default {
 </script>
 ```
 
+<br>
+
+## Computed 와 watch
+Computed
+- 연산결과를 `캐싱`하여 사용할 수 있게 해준다.
+- 대상(ex. message)이 변경되지 않는다면 이미 연산 처리된 즉, 캐싱처리되어있는 reversedMesage를 가져온다.
+```html
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      message: 'Hello Vue!!'
+    }
+  },
+  computed: {
+    reversedMessage() {
+      return this.message.split("").reverse().join("")
+    }
+  }
+}
+</script>
+```
+
+Watch
+- state 나 props를 감시하고 해당 값이 변경되었을 때의 무엇을 할건지 지정한다.
+```html
+<template>
+  <input v-model="firstname" />
+  <input v-model="lastname"/>
+</template>
+
+<script>
+export default {
+  name: 'app',
+  data () {
+    return {
+      firstname: '',
+      lastname: ''
+    }
+  },
+  watch: {
+    firstname (val) {          // firstname 값이 변경되었을 때
+      console.log('fistname', val)
+    },
+    lastname (val) {          // lastname 값이 변경되었을 때
+      console.log('lastname', val)
+    }
+  }
+}
+</script>
+```
+
+watch ?.. computed ..?
+- 두가지 모두 같은 결과가 나온다. 어떤걸 쓰면 좋은걸까?
+- `watch`는 언제 변하는지 예측하기 어려울때 많이 사용한다. (ex. 비동기 통신)
+- `computed`는 복잡한 연산같은 것을 캐싱처리하기 위해 사용된다.
