@@ -113,15 +113,17 @@ export default {
 </style>
 ```
 
-> Componet 작명 시 주의사항
-> - 단어 2개 이상을 사용하여 작명한다. (예: todo-app)
-> - 단어가 1개일 경우 주석을 추가해준다.
-> ```js
-> export default {
->   //eslint-disable-next-line
->   name: 'Name',
-> }
-> ```
+Component 이름 표기법
+- 컴포넌트를 등록할 때 PascalCase 이름을 사용([가이드 문서](https://ko.vuejs.org/guide/components/registration.html#component-name-casing))
+- 단어 2개 이상을 사용하여 작명한다. (예: TodoApp)
+- vue는 PascalCase를 사용하여 등록된 컴포넌트에 대한 kebab-case 태그 해석을 지원하므로 `TodoApp`은 `<TodoApp>` 또는 `<todo-app>`으로 참조될 수 있음
+- 만약, 단어가 1개일 경우 주석을 추가해준다.
+  ```js
+  export default {
+    //eslint-disable-next-line
+    name: 'Name',
+  }
+  ```
 
 Componet 가져오기
 ```js

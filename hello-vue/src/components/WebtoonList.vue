@@ -15,15 +15,11 @@
 
 <script>
 export default {
-  //eslint-disable-next-line
-  name: 'Webtoon',
   props: {
     items: { type: Array, default: () => [] }
   }
 }
 </script>
-
-// Webtoon.vue 
 
 <style scoped>
 h2 {
