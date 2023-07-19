@@ -378,3 +378,64 @@ watch ?.. computed ..?
 - 두가지 모두 같은 결과가 나온다. 어떤걸 쓰면 좋은걸까?
 - `watch`는 언제 변하는지 예측하기 어려울때 많이 사용한다. (ex. 비동기 통신)
 - `computed`는 복잡한 연산같은 것을 캐싱처리하기 위해 사용된다.
+
+<br>
+
+## Vue Router
+- Vue.js의 공식 라우터
+- SPA를 구현할 때 사용
+- url이 변경되면, 변경된 요소의 영역에 컴포넌트를 갱신해주는 역할
+
+vue-router 설치
+```bash
+npm install --save vue-router
+```
+
+router 생성
+- router 4 버전에서는 `createRouter` 메서드를 사용해 라우터를 생성한다.(이전 저번에서는 인스턴스 방식을 사용, [참고](https://jinyisland.kr/post/vue-router/))
+```js
+// router/router.js
+import { createWebHistory, createRouter } from "vue-router";
+import HomePage from "../views/HomePage.vue";
+
+const routes = [
+    // 라우팅 패스, 컴포넌트 등 정의
+    { path : "/", name : "home", component : HomePage },
+]
+
+const router = createRouter({
+    history : createWebHistory(),
+    routes : routes
+});
+
+export default router;
+```
+
+- 라우터를 사용하겠다고 설정해준다.
+```js
+// main.js
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from "./router/router"
+
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
+```
+
+router-view
+- 라우터에 맞는 컴포넌트가 이곳에 렌더링 된다.
+```html
+// App.vue
+<template>
+  <div id="app">
+    <router-view />
+  </div>
+</template>
+```
+
+router-link
+- 라우팅 된 경로로 이동하게 한다.
+```html
+<router-link to="/about">About</router-link>
+```
