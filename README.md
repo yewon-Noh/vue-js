@@ -22,6 +22,40 @@ SPA(Single Page Application)
 
 <br>
 
+## vue 시작하기
+
+vue 설치
+```bash
+npm install vue
+```
+
+애플리케이션 만들기
+```bash
+npm init vue@latest
+
+✔ Project name: … [project name]
+✔ Add TypeScript? … No / Yes
+✔ Add JSX Support? … No / Yes
+✔ Add Vue Router for Single Page Application development? … No / Yes
+✔ Add Pinia for state management? … No / Yes
+✔ Add Vitest for Unit testing? … No / Yes
+✔ Add an End-to-End Testing Solution? … No / Cypress / Playwright
+✔ Add ESLint for code quality? … No / Yes
+✔ Add Prettier for code formatting? … No / Yes
+
+Scaffolding project in ./<your-project-name>...
+Done.
+```
+
+실행하기
+```bash
+cd [project name]
+npm install
+npm run dev
+```
+
+<br>
+
 ## vue-cli
 
 - 기본 vue 개발 환경을 설정해주는 도구
